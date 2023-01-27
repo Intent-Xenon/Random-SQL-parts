@@ -1,0 +1,28 @@
+from guizero import *
+import sqlite3 
+import os
+import os.path
+import matplotlib.pyplot as plt
+
+#count
+def sql_count_number():
+	sqlselect = "SELECT count(SeatID) from Seat_Table"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	info('Amount','Total amount of Seats booked are: ' + str(Total_Amount))
+  
+  #sum
+  
+def sql_total_income():
+	sqlselect = "SELECT sum(SeatCost) from Seat_Table"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	info('Amount','Total amount of Income is are: £' + str(Total_Amount))
+  
+  
+  ##Insert
+  
+mysqlinsert = "insert into User_Table (UserUsername, UserPassword, UserEmail,UserCreditCard, Paid, ExtraHealthDetails) VALUES ('"+ Username_box.value + "','" + Password_box.value + "','" + Email_box.value + "','" + str(CreditCard_box.value) + "','" + str(Paid) + "','" + str(box_extraH.value) + "')"
+		#print(mysqlinsert)
+		info('Thank you!','Thank you for signing up!') # pop up message
+		execute_sql(database_file,mysqlinsert)# goes to execute sql
