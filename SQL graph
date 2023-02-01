@@ -1,0 +1,11 @@
+def analysegraph():
+    fri_search = sql_count_friday_graph()
+    sat_search = sql_count_saturday_graph() #In the future use propper variable names you skinny twat, Love Nicolette <3
+    x_axis =['Friday','Saturday']
+    y_axis = [fri_search , sat_search]
+    plt.xlabel('Performance Day')
+    plt.ylabel('Number Of Seats Sold')
+    plt.title('Seats Sold by Days')
+    plt.bar(x_axis,y_axis)
+    plt.savefig("seatsnumber.png")
+    plt.show()
